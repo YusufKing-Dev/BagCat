@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$BAGCAT — Meow or Get the Bag | BagCat on Robinhood Chain</title>
+<meta name="description" content="$BAGCAT is the hood cat meme coin on Robinhood Chain. 1 billion supply, no tax, no hidden wallets — just vibes. Fill your bag or watch the strays eat.">
+<meta name="keywords" content="BagCat, BAGCAT, $BAGCAT, meme coin, Robinhood Chain, crypto cat coin, hood.fun, degen token">
+<meta name="author" content="$BAGCAT">
+<!-- TODO: replace with your live site URL once deployed -->
+<link rel="canonical" href="https://bagcat.example/">
+<link rel="icon" type="image/png" href="bagcat.png">
+<link rel="apple-touch-icon" href="bagcat.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="$BAGCAT — Meow or Get the Bag">
+<meta property="og:description" content="The hood cat meme coin on Robinhood Chain. 1 billion supply, no tax, no hidden wallets — just vibes.">
+<meta property="og:image" content="bagcat.png">
+<meta property="og:url" content="https://bagcat.example/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="$BAGCAT — Meow or Get the Bag">
+<meta name="twitter:description" content="The hood cat meme coin on Robinhood Chain. 1 billion supply, no tax, no hidden wallets — just vibes.">
+<meta name="twitter:image" content="bagcat.png">
+<meta name="twitter:site" content="@bagcat_rh">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --asphalt:#0a0b0d;
+    --panel:#141619;
+    --panel-line:#26292e;
+    --lime:#c6ff3d;
+    --pink:#ff3d8a;
+    --bone:#ece8dd;
+    --grey:#7a7e85;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--asphalt);
+    color:var(--bone);
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* grain texture */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:999;
+    pointer-events:none;
+    opacity:0.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .display{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    text-shadow:0 0 16px rgba(198,255,61,0.35);
+  }
+
+  .mono{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+  }
+
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.75rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--lime);
+  }
+
+  /* ===== marquee ticker ===== */
+  .ticker-wrap{
+    position:sticky;
+    top:0;
+    z-index:100;
+    width:100%;
+    background:var(--lime);
+    color:var(--asphalt);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:2px solid var(--asphalt);
+    transform:translateZ(0);
+  }
+  .ticker-track{
+    display:inline-block;
+    padding-left:100%;
+    animation:ticker 22s linear infinite;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    padding-top:7px;
+    padding-bottom:7px;
+  }
+  .ticker-track span{ margin:0 1.5rem; }
+  @keyframes ticker{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-100%); }
+  }
+
+  /* ===== nav ===== */
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.5rem clamp(1.5rem, 5vw, 4rem);
+  }
+  .nav-mark{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    font-size:1.1rem;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+  }
+  .nav-mark img{
+    width:28px; height:28px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1.5px solid var(--lime);
+    box-shadow:0 0 10px rgba(198,255,61,0.35);
+  }
+  nav .links{ display:flex; align-items:center; gap:2rem; font-family:'Inter',sans-serif; font-weight:500; font-size:0.78rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey); }
+  nav .links a{ transition:color .2s ease; }
+  nav .links a:hover{ color:var(--lime); }
+  nav .nav-buy{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    background:var(--lime);
+    color:var(--asphalt) !important;
+    padding:0.55rem 1.1rem;
+    border-radius:2px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  nav .nav-buy:hover{ background:var(--pink); transform:translateY(-1px); color:var(--asphalt) !important; }
+  @media (max-width:680px){ nav .links a:not(.nav-buy){ display:none; } }
+
+  @media (max-width:680px){
+    .ticker-track{ font-size:0.72rem; animation-duration:16s; }
+  }
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:2rem 1.5rem 4rem;
+    isolation:isolate;
+  }
+
+  .hero-glow{
+    position:absolute;
+    top:50%; left:50%;
+    width:900px; height:900px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(198,255,61,0.10) 0%, rgba(198,255,61,0) 60%);
+    z-index:-1;
+    animation:pulse-glow 5s ease-in-out infinite;
+  }
+  @keyframes pulse-glow{
+    0%,100%{ opacity:0.7; transform:translate(-50%,-50%) scale(1); }
+    50%{ opacity:1; transform:translate(-50%,-50%) scale(1.08); }
+  }
+
+  .hero-logo-wrap{
+    margin-bottom:1.6rem;
+  }
+  .hero-logo{
+    width:128px;
+    height:128px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--lime);
+    box-shadow:0 0 24px 4px rgba(198,255,61,0.35), 0 0 60px 10px rgba(198,255,61,0.15);
+    animation:logo-float 4.5s ease-in-out infinite;
+    background:var(--panel);
+  }
+  @keyframes logo-float{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+  }
+
+  .eyes{
+    display:flex;
+    gap:2.2rem;
+    margin-bottom:1.8rem;
+  }
+  .eye{
+    width:26px; height:44px;
+    background:var(--lime);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow:0 0 18px 2px var(--lime), 0 0 45px 6px rgba(198,255,61,0.4);
+    animation:eye-pulse 3.6s ease-in-out infinite;
+  }
+  .eye:nth-child(2){ animation-delay:0.15s; }
+  @keyframes eye-pulse{
+    0%,100%{ transform:scaleY(1); opacity:1; }
+    50%{ transform:scaleY(1); opacity:1; }
+    96%{ transform:scaleY(0.08); }
+    98%{ transform:scaleY(0.08); }
+  }
+
+  .hero h1{
+    font-size:clamp(3rem, 11vw, 8.5rem);
+    line-height:0.92;
+    color:var(--bone);
+    -webkit-text-stroke:2px var(--asphalt);
+  }
+  .hero h1 .hl{ color:var(--lime); }
+
+  .hero .tagline{
+    margin-top:1.6rem;
+    font-size:clamp(1rem, 2.4vw, 1.3rem);
+    color:var(--grey);
+    max-width:36ch;
+  }
+  .hero .tagline strong{ color:var(--pink); font-weight:600; }
+
+  .hero-cta{
+    margin-top:2.6rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.9rem 1.8rem;
+    border-radius:2px;
+    border:2px solid var(--bone);
+    cursor:pointer;
+    transition:all .2s ease;
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .btn-fill{
+    background:var(--lime);
+    border-color:var(--lime);
+    color:var(--asphalt);
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.005em;
+  }
+  .btn-fill:hover{ background:var(--pink); border-color:var(--pink); color:var(--asphalt); transform:translateY(-2px); }
+  .btn-outline{ color:var(--bone); background:transparent; }
+  .btn-outline:hover{ border-color:var(--pink); color:var(--pink); transform:translateY(-2px); }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:2rem;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.7rem;
+    color:var(--grey);
+    letter-spacing:0.15em;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .scroll-cue::after{
+    content:"";
+    width:1px; height:28px;
+    background:linear-gradient(var(--lime), transparent);
+    animation:scroll-down 1.8s ease-in-out infinite;
+  }
+  @keyframes scroll-down{
+    0%{ transform:scaleY(0); transform-origin:top;}
+    50%{ transform:scaleY(1); transform-origin:top;}
+    51%{ transform-origin:bottom;}
+    100%{ transform:scaleY(0); transform-origin:bottom;}
+  }
+
+  /* ===== section shell ===== */
+  section{
+    padding:7rem clamp(1.5rem, 6vw, 6rem);
+    position:relative;
+  }
+  @media (max-width:680px){
+    section{ padding:4rem 1.25rem; }
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:1rem;
+    margin-bottom:3rem;
+    border-bottom:1px solid var(--panel-line);
+    padding-bottom:1.2rem;
+  }
+  .section-head h2{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:clamp(1.6rem, 4vw, 2.6rem);
+    text-transform:uppercase;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s cubic-bezier(.22,.68,0,1), transform .7s cubic-bezier(.22,.68,0,1);
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ===== lore ===== */
+  .lore{ background:var(--panel); border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line); }
+  .lore-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.4fr;
+    gap:3.5rem;
+    align-items:start;
+  }
+  @media (max-width:800px){ .lore-grid{ grid-template-columns:1fr; } }
+
+  .lore-tag{
+    font-size:1.5rem;
+    line-height:1.5;
+    color:var(--bone);
+  }
+  .lore-tag em{ color:var(--pink); font-style:normal; }
+
+  .lore-body p{
+    font-size:1.02rem;
+    line-height:1.85;
+    color:#c7c4ba;
+    margin-bottom:1.3rem;
+  }
+  .lore-body p:last-child{ margin-bottom:0; }
+  .lore-body strong{ color:var(--lime); font-weight:600; }
+
+  /* ===== visual vibe ===== */
+  .vibe-card{
+    border:1px solid var(--panel-line);
+    background:linear-gradient(160deg, #16181b, #0d0e10);
+    border-radius:4px;
+    padding:2.6rem;
+    position:relative;
+    overflow:hidden;
+    max-width:820px;
+  }
+  .vibe-card::before{
+    content:"CONCEPT ART — v1";
+    position:absolute;
+    top:1rem; right:1.2rem;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    color:var(--grey);
+  }
+  .vibe-card p{
+    font-size:1.15rem;
+    line-height:1.75;
+    color:var(--bone);
+    max-width:56ch;
+  }
+  .vibe-card .tagline-big{
+    margin-top:1.8rem;
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:clamp(1.3rem, 3vw, 2rem);
+    color:var(--lime);
+    text-transform:uppercase;
+  }
+  .swatches{ display:flex; gap:0.6rem; margin-top:2rem; }
+  .swatch{ width:34px; height:34px; border-radius:3px; border:1px solid rgba(255,255,255,0.08); }
+
+  /* ===== roadmap ===== */
+  .roadmap-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .phase{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:2rem;
+    padding:2.4rem 0;
+    border-bottom:1px solid var(--panel-line);
+    transition:padding-left .3s ease;
+  }
+  @media (max-width:560px){
+    .phase{ grid-template-columns:56px 1fr; gap:1rem; padding:1.8rem 0; }
+    .phase-num{ font-size:1.7rem; }
+  }
+  .phase:first-child{ padding-top:0; }
+  .phase:hover{ padding-left:0.8rem; }
+  .phase-num{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:2.6rem;
+    color:var(--panel-line);
+    transition:color .3s ease;
+  }
+  .phase:hover .phase-num{ color:var(--pink); }
+  .phase-title{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--lime);
+    font-size:0.85rem;
+    margin-bottom:0.6rem;
+  }
+  .phase-desc{ color:#c7c4ba; line-height:1.75; max-width:60ch; }
+  .phase-footer{
+    margin-top:2rem;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.85rem;
+    color:var(--grey);
+  }
+  .phase-footer strong{ color:var(--bone); }
+
+  /* ===== tokenomics ===== */
+  .token-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--panel-line);
+    border:1px solid var(--panel-line);
+  }
+  @media (max-width:800px){ .token-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .token-cell{
+    background:var(--panel);
+    padding:2.2rem 1.6rem;
+    text-align:center;
+  }
+  .token-cell .t-val{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    text-shadow:0 0 14px rgba(198,255,61,0.45);
+    font-size:clamp(1.1rem, 2.4vw, 1.6rem);
+    color:var(--lime);
+    margin-bottom:0.6rem;
+  }
+  .token-cell .t-label{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--grey);
+  }
+
+  /* ===== contract ===== */
+  .contract-box{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:4px;
+    padding:1.6rem 1.8rem;
+    max-width:820px;
+  }
+  .contract-box .ca-label{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:0.4rem;
+    display:block;
+  }
+  .contract-box .ca-value{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.92rem;
+    color:var(--bone);
+    word-break:break-all;
+  }
+  .ca-copy{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:0.75rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    background:var(--lime);
+    color:var(--asphalt);
+    border:none;
+    padding:0.7rem 1.2rem;
+    border-radius:2px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+    margin-left:auto;
+  }
+  .ca-copy:hover{ background:var(--pink); transform:translateY(-1px); }
+  .ca-copy.copied{ background:var(--pink); }
+
+  /* ===== social ===== */
+  .social-grid{
+    display:flex;
+    gap:1.2rem;
+    flex-wrap:wrap;
+  }
+  .social-card{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    border:1px solid var(--panel-line);
+    background:var(--panel);
+    padding:1.3rem 1.7rem;
+    border-radius:4px;
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+    min-width:220px;
+  }
+  .social-card:hover{ border-color:var(--lime); transform:translateY(-2px); background:#181b1f; }
+  .social-card svg{ width:28px; height:28px; flex-shrink:0; fill:var(--lime); }
+  .social-card .s-name{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--bone);
+    display:block;
+  }
+  .social-card .s-handle{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.72rem;
+    color:var(--grey);
+    margin-top:0.2rem;
+    display:block;
+  }
+
+  /* ===== whitepaper modal ===== */
+  .wp-modal{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2rem 1.2rem;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease, visibility .25s ease;
+  }
+  .wp-modal.open{ opacity:1; visibility:visible; }
+  .wp-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(6,7,8,0.85);
+    backdrop-filter:blur(3px);
+  }
+  .wp-panel{
+    position:relative;
+    z-index:1;
+    width:min(720px, 100%);
+    max-height:88vh;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:6px;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transform:translateY(16px) scale(0.98);
+    transition:transform .25s ease;
+  }
+  .wp-modal.open .wp-panel{ transform:translateY(0) scale(1); }
+  .wp-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.1rem 1.4rem;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .wp-title{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    color:var(--lime);
+    font-size:1rem;
+    text-shadow:0 0 12px rgba(198,255,61,0.35);
+  }
+  .wp-close{
+    background:none;
+    border:none;
+    color:var(--bone);
+    font-size:1.8rem;
+    line-height:1;
+    cursor:pointer;
+    padding:0 0.2rem;
+    transition:color .2s ease;
+  }
+  .wp-close:hover{ color:var(--pink); }
+  .wp-body{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--asphalt);
+    flex:1;
+    min-height:0;
+    padding:1rem;
+  }
+  .wp-image{
+    max-width:100%;
+    max-height:70vh;
+    object-fit:contain;
+    border-radius:2px;
+  }
+  .wp-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(20,22,25,0.8);
+    border:1px solid var(--panel-line);
+    color:var(--bone);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:1.4rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:border-color .2s ease, color .2s ease, background .2s ease;
+  }
+  .wp-nav:hover{ border-color:var(--lime); color:var(--lime); background:rgba(198,255,61,0.08); }
+  .wp-prev{ left:0.8rem; }
+  .wp-next{ right:0.8rem; }
+  .wp-foot{
+    padding:0.9rem 1.4rem;
+    border-top:1px solid var(--panel-line);
+    text-align:center;
+  }
+  .wp-page-indicator{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    color:var(--grey);
+  }
+  @media (max-width:560px){
+    .wp-nav{ width:34px; height:34px; font-size:1.2rem; }
+    .wp-image{ max-height:58vh; }
+  }
+
+  /* ===== footer ===== */
+  footer{
+    background:var(--lime);
+    color:var(--asphalt);
+    text-align:center;
+    padding:6rem 1.5rem 4rem;
+    position:relative;
+  }
+  footer h2{
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:clamp(2rem, 7vw, 4.5rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+    text-shadow:none;
+  }
+  footer .sub{
+    margin-top:1rem;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    max-width:40ch;
+    margin-left:auto;
+    margin-right:auto;
+    opacity:0.75;
+  }
+  .footer-cta{
+    margin-top:2.4rem;
+    display:inline-block;
+    background:var(--asphalt);
+    color:var(--lime);
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-0.005em;
+    text-shadow:0 0 14px rgba(198,255,61,0.4);
+    font-size:0.85rem;
+    padding:1rem 2.2rem;
+    border-radius:2px;
+    transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .footer-cta:hover{ background:var(--pink); color:var(--asphalt); transform:translateY(-2px) scale(1.02); }
+
+  .foot-fine{
+    margin-top:3.5rem;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:0.7rem;
+    opacity:0.6;
+  }
+</style>
+</head>
+<body>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>MEOW OR GET THE BAG</span>
+      <span>★</span>
+      <span>FILL BAGS · MEME HARD · WATCH THE STRAYS EAT</span>
+      <span>★</span>
+      <span>NOT FOLLOWING DOGS, NOT COPYING FROGS</span>
+      <span>★</span>
+      <span>MEOW OR GET THE BAG</span>
+      <span>★</span>
+      <span>FILL BAGS · MEME HARD · WATCH THE STRAYS EAT</span>
+      <span>★</span>
+      <span>NOT FOLLOWING DOGS, NOT COPYING FROGS</span>
+      <span>★</span>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-mark"><img src="bagcat.png" alt="BagCat logo">$BAGCAT</div>
+    <div class="links">
+      <a href="#lore">Lore</a>
+      <a href="#vibe">Visual Vibe</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="https://www.hood.fun/coin/0x7046D351e5f0d508C39cf5f5Ee36A945034a600D" target="_blank" rel="noopener" class="nav-buy">Buy</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-logo-wrap">
+      <img src="bagcat.png" alt="BagCat — official $BAGCAT logo" class="hero-logo">
+    </div>
+    <div class="eyes" aria-hidden="true">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+    <h1 class="display">BAG<span class="hl">CAT</span></h1>
+    <p class="tagline">Battle-scarred alley stray. Nine lives. Zero patience for broke behavior. <strong>Meow or get the bag.</strong></p>
+    <div class="hero-cta">
+      <a href="https://www.hood.fun/coin/0x7046D351e5f0d508C39cf5f5Ee36A945034a600D" target="_blank" rel="noopener" class="btn btn-fill">Buy $BAGCAT</a>
+      <a href="#lore" class="btn btn-outline">Read the Lore</a>
+      <button type="button" class="btn btn-outline" onclick="openWhitepaper()">Whitepaper</button>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <section class="lore" id="lore">
+    <div class="section-head reveal">
+      <span class="eyebrow">001 / Origin</span>
+      <h2 class="display">Lore</h2>
+    </div>
+    <div class="lore-grid">
+      <div class="lore-tag reveal">
+        Deep in the concrete jungle of the Robinhood streets, where <em>charts bleed red</em> and only the ruthless survive — BagCat emerged from the shadows.
+      </div>
+      <div class="lore-body reveal">
+        <p>No fancy backstory. No corporate origins. Just a battle-scarred alley stray with nine lives and zero patience for broke behavior. BagCat learned the hard way: <strong>hold too weak and you get rugged.</strong> Chase too slow and the gains vanish.</p>
+        <p>So he adapted. Hoodie up, claws out, laser-focused eyes locked on the next pump. He doesn't chase trends — he claws them. One paw snatching falling knives, the other stacking fresh bags for the pack. While normies panic sell, BagCat is out here printing, raiding, and turning paper hands into <strong>diamond-pawed legends.</strong></p>
+        <p>He's the degen embodiment of "Meow or Get the Bag." Chaotic, unapologetic, and always one step ahead of the rug. Part street survivor, part chaos agent — cute face, deadly gains.</p>
+        <p>On Robinhood Chain, BagCat runs his own lane. The ultimate hood cat meta. Not following dogs, not copying frogs. Just pure feline degeneracy: fill bags, meme hard, and watch the strays eat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vibe">
+    <div class="section-head reveal">
+      <span class="eyebrow">002 / Aesthetic</span>
+      <h2 class="display">Visual Vibe</h2>
+    </div>
+    <div class="vibe-card reveal">
+      <p>Hooded tabby cat, glowing eyes, torn streetwear, stacks of cash raining down, chaotic meme energy, middle paw to the bears. Raw alley-art style — the kind that screams <strong style="color:var(--pink)">"I survived the trenches."</strong></p>
+      <div class="tagline-big">Meow or Get the Bag.</div>
+      <div class="swatches" aria-hidden="true">
+        <div class="swatch" style="background:#0a0b0d"></div>
+        <div class="swatch" style="background:#c6ff3d"></div>
+        <div class="swatch" style="background:#ff3d8a"></div>
+        <div class="swatch" style="background:#ece8dd"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="section-head reveal">
+      <span class="eyebrow">003 / The Run</span>
+      <h2 class="display">Roadmap</h2>
+    </div>
+    <div class="roadmap-list">
+      <div class="phase reveal">
+        <div class="phase-num">01</div>
+        <div>
+          <div class="phase-title">Launch</div>
+          <div class="phase-desc">Fair launch on Robinhood Chain via bonding curve. Flood timelines with memes and build the stray pack.</div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">02</div>
+        <div>
+          <div class="phase-title">Momentum</div>
+          <div class="phase-desc">Lock liquidity, community raids, trending pushes, and holder events.</div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">03</div>
+        <div>
+          <div class="phase-title">Grow</div>
+          <div class="phase-desc">Strong memes, merch vibes if it prints, and solidify as the hood cat coin.</div>
+        </div>
+      </div>
+    </div>
+    <div class="phase-footer reveal"><strong>Pure community-driven.</strong> No BS, no promises — just vibes and claws. The pack decides how far we run.</div>
+  </section>
+
+  <section id="tokenomics">
+    <div class="section-head reveal">
+      <span class="eyebrow">004 / The Numbers</span>
+      <h2 class="display">Tokenomics</h2>
+    </div>
+    <div class="token-grid reveal">
+      <div class="token-cell">
+        <div class="t-val">1,000,000,000</div>
+        <div class="t-label">Total Supply</div>
+      </div>
+      <div class="token-cell">
+        <div class="t-val">0%</div>
+        <div class="t-label">No Tax</div>
+      </div>
+      <div class="token-cell">
+        <div class="t-val">None</div>
+        <div class="t-label">No Hidden Wallets</div>
+      </div>
+      <div class="token-cell">
+        <div class="t-val">100%</div>
+        <div class="t-label">Just Vibes</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contract">
+    <div class="section-head reveal">
+      <span class="eyebrow">005 / Verify</span>
+      <h2 class="display">Contract Address</h2>
+    </div>
+    <div class="contract-box reveal">
+      <div>
+        <span class="ca-label">$BAGCAT · Robinhood Chain</span>
+        <span class="ca-value" id="ca-text">0x7046D351e5f0d508C39cf5f5Ee36A945034a600D</span>
+      </div>
+      <button class="ca-copy" id="ca-copy-btn" onclick="copyCA()">Copy</button>
+    </div>
+  </section>
+
+  <section id="social">
+    <div class="section-head reveal">
+      <span class="eyebrow">006 / Join the Pack</span>
+      <h2 class="display">Socials</h2>
+    </div>
+    <div class="social-grid reveal">
+      <a class="social-card" href="https://t.me/Bagcat_rh" target="_blank" rel="noopener" aria-label="Join BagCat on Telegram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.94 3.14a1.5 1.5 0 0 0-1.53-.23L2.72 10.02c-1.02.4-1.01 1.87.02 2.25l4.51 1.67 1.74 5.6c.24.77 1.22.99 1.78.4l2.52-2.66 4.65 3.42c.75.55 1.83.15 2.03-.76l3.47-15.7a1.5 1.5 0 0 0-.5-1.6ZM9.6 13.6l-1.05 3.4-.9-2.9 9.3-6.9c.2-.15.42.1.24.28Z"/></svg>
+        <span>
+          <span class="s-name">Telegram</span>
+          <span class="s-handle">t.me/Bagcat_rh</span>
+        </span>
+      </a>
+      <a class="social-card" href="https://x.com/bagcat_rh?s=11" target="_blank" rel="noopener" aria-label="Follow BagCat on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.5h3.32l-7.25 8.29 8.53 10.71h-6.68l-5.23-6.64-5.99 6.64H1.62l7.76-8.87L1.2 2.5h6.85l4.73 6.08L18.24 2.5Zm-1.17 17.02h1.84L7.02 4.38H5.05l11.02 15.14Z"/></svg>
+        <span>
+          <span class="s-name">X (Twitter)</span>
+          <span class="s-handle">@bagcat_rh</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <h2 class="display">Fill the Bag.<br>Pet the Cat.<br>Own the Hood.</h2>
+    <p class="sub">$BAGCAT is the uprising of every degen who ever got rugged and decided: never again.</p>
+    <a href="https://www.hood.fun/coin/0x7046D351e5f0d508C39cf5f5Ee36A945034a600D" target="_blank" rel="noopener" class="footer-cta">Enter the Hood →</a>
+    <div class="foot-fine mono">$BAGCAT · ROBINHOOD CHAIN · NOT FINANCIAL ADVICE</div>
+  </footer>
+
+  <div class="wp-modal" id="wp-modal" role="dialog" aria-modal="true" aria-label="BagCat whitepaper">
+    <div class="wp-backdrop" onclick="closeWhitepaper()"></div>
+    <div class="wp-panel">
+      <div class="wp-head">
+        <span class="wp-title">Whitepaper</span>
+        <button type="button" class="wp-close" onclick="closeWhitepaper()" aria-label="Close whitepaper">&times;</button>
+      </div>
+      <div class="wp-body">
+        <button type="button" class="wp-nav wp-prev" onclick="wpChange(-1)" aria-label="Previous page">&#8249;</button>
+        <img id="wp-image" class="wp-image" src="" alt="Whitepaper page">
+        <button type="button" class="wp-nav wp-next" onclick="wpChange(1)" aria-label="Next page">&#8250;</button>
+      </div>
+      <div class="wp-foot">
+        <span class="wp-page-indicator" id="wp-page-indicator">1 / 2</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+
+    function copyCA(){
+      const text = document.getElementById('ca-text').textContent.trim();
+      const btn = document.getElementById('ca-copy-btn');
+      const done = () => {
+        const original = 'Copy';
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+    function fallbackCopy(text, done){
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); done(); } catch(e){}
+      document.body.removeChild(ta);
+    }
+
+    /* ===== whitepaper modal ===== */
+    // Add or remove page paths here — the modal adapts automatically.
+    const wpPages = ['whitepaper/1.png', 'whitepaper/2.png'];
+    let wpIndex = 0;
+    const wpModal = document.getElementById('wp-modal');
+    const wpImage = document.getElementById('wp-image');
+    const wpIndicator = document.getElementById('wp-page-indicator');
+
+    function wpRender(){
+      wpImage.src = wpPages[wpIndex];
+      wpImage.alt = 'Whitepaper page ' + (wpIndex + 1) + ' of ' + wpPages.length;
+      wpIndicator.textContent = (wpIndex + 1) + ' / ' + wpPages.length;
+    }
+    function openWhitepaper(){
+      wpIndex = 0;
+      wpRender();
+      wpModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeWhitepaper(){
+      wpModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function wpChange(delta){
+      wpIndex = (wpIndex + delta + wpPages.length) % wpPages.length;
+      wpRender();
+    }
+    document.addEventListener('keydown', (e) => {
+      if(!wpModal.classList.contains('open')) return;
+      if(e.key === 'Escape') closeWhitepaper();
+      if(e.key === 'ArrowRight') wpChange(1);
+      if(e.key === 'ArrowLeft') wpChange(-1);
+    });
+  </script>
+
+</body>
+</html>
